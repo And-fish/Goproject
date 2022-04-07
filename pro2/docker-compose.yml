@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  tomcat:                                                 #服务的名称
+    restart: always                                       #代表只要Docker启动，那么这个容器就会启动
+    image: daocloud.io/library/tomcat:8.0.45              #指定镜像路径
+    container_name: tomcat                                #指定容器名称
+    ports:
+      - 8080:8080                                         #指定端口映射
+    environment:
+      TZ: Asia/Shanghai                                   #指定时区
+    volumes:
+      - /home/tomcat_webapps:/usr/local/tomcat/webapps    #映射数据卷
+      - /home/tomcat_logs:/usr/local/tomcat/logs
+  mysql:
+    restart: always
+    image: daocloud.io/library/mysql:5.7.5-m15
+    container_name: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456                         #指定MySQL的root密码
+      TZ: Asia/Shanghai
+    volumes:
+      - /home/mysql_docker:/var/lib/mysql
+  web_demo:
+    restart: always
+    build:                                                #构建自定义镜像
+      context: /root/test                                 #dockerfile的路径
+      dockerfile: dockerfile                              #dockerfile的文件名
+    image: demo:9.9                                       #自定义镜像的名字和版本
+    container_name: demo1
+    ports:
+      - 8081:8080
+    environment:
+      TZ: Asia/Shanghai
