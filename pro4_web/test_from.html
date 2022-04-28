@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>这是标题</title>
+</head>
+<body>
+    <h1>用户主责页面</h1>
+    <!-- action表示跳转到哪儿 ，method表示这是get形式还是post形式 -->
+    <!-- <form action="/test2" method="post"> -->
+    <form action="/test2" method="post">
+        <fieldset>
+            <legend>信息:</legend>
+            <!-- type表示类型，name表示变量名 -->
+            用户名:<input type="text" name="name"><br>
+            密码:<input type="password" name="pwd"><br>
+        </fieldset>
+        爱好:
+        <!-- checkbox是多选，返回的是一个string切片，用postfromarray获取 -->
+        <input type="checkbox" name="hobby" value="swiming">游泳
+        <input type="checkbox" name="hobby" value="basketball">篮球
+        <br>
+        <!-- redio是多选一 -->
+        性别: <input type="radio" name="gender" id="1" value="m">男
+        <input type="radio" name="gender" id="2" value="w">女   
+        <br>
+        <!-- select是下拉列表 -->
+        城市: <select name="city">
+            <option value="beijing">北京</option>
+            <option value="shanghai">上海</option>
+        </select>
+        <br>
+        <input type="submit" value="html显示" formaction="/test">
+        <input type="submit" value="struck显示" formaction="/test2">
+    </form>
+</body>
+</html>

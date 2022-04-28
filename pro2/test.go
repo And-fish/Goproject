@@ -79,20 +79,29 @@ func main() {
 	// a2 := animal{Name: "cat", id: 2}
 	// d.Create(&a)
 	// d.Create(&a2)
-	var to = TestObject{
-		Name: "991",
-	}
-	d.Create(&to)
+
+	// var to = TestObject{
+	// 	Name: "991",
+	// }
+	// d.Create(&to)
+
 	// d.Unscoped().Last(&to)
 	// d.Where(&to).Take(&to)
 	// d.Unscoped().Delete(&to)
 	// fmt.Printf("to: %v\n", to)
 	// d.Delete(&to)
 	// fmt.Printf("to: %v\n", to)
-
+	cat := animal{
+		"cat",
+		4,
+	}
+	d.Table("animals").Create(&cat)
+	var a animal
+	d.Table("animals").Where(&cat).First(&a)
+	fmt.Printf("a: %v\n", a)
 }
 
 type animal struct {
 	Name string
-	id   int
+	Id   int
 }

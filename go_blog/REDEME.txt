@@ -1,0 +1,58 @@
+一、Gin博客项目架构：
+    1.controller(程序处理函数)
+    2.dao(数据库内容的接口)
+    3.router(路由,路径关联到哪些controller)
+    4.model(数据库生成表对应的结构体)
+    5.assets(静态资源)
+    6.templates(模板文件)
+
+二、初始化项目
+    go mod init blog
+
+三、集成gorm
+    1.下载包:
+        go get -u gorm.io/gorm
+        go get -u gorm.io/driver/mysql
+    2.创建模型
+    3.连接数据库
+        完成数据库简单的添加
+
+四、集成Bootstrap创建用户表单
+    1.下载bootstrap：
+        https://getbootstrap.com/
+    2.添加js和css到assets目录下面
+
+五、添加控制器和路由
+    1.控制器controller
+    2.路由router
+
+六、设计静态画面
+
+七、用户注册功能简单实现
+    1.将数据添加简单的绑定在web上
+    2.实现一个简单的页面跳转
+
+八、用户登录功能简单实现
+    1.实现一个基本的数据库查找
+    2.将数据查找绑定在web上
+    3.实现简单的页面跳转
+
+九、集成markdown编辑器
+    1.下载Editor.md:
+        https://pandao.github.io/editor.md/
+    2.解压文件到assets目录中
+
+十、创建博客模型和DAO:
+    1.创建模型:
+        POST
+    2.给POST模型写上基本的数据库查询和添加方法
+
+十一、创建博客控制器和路由:
+    1.创建控制器
+    2.创建路由
+
+十二、设计博客页面:
+    1.设计博客首页
+    2.设计博客书写页面
+    3.简单实现博客列表
+    4.实现博客详细

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    测试{{.}}<br>
+
+    {{`"output"`}}<br>
+    {{printf "%v" "output"}}<br>
+    {{"output"|printf "%v"}}<br>
+    {{"put"|printf "%v%v" "out"|printf "%v"}}<br>
+
+    {{23}} < {{58}}<br>
+    {{23 -}} < {{58}}<br>
+    {{23}} < {{- 58}}<br>
+    {{23 -}} < {{- 58}}<br>
+
+    {{$dog:="wude"}}
+    {{$dog}}<br>
+
+    {{$age:=2}}
+    {{if (ge $age 18)}}
+    <h1>你已经成年了</h1>
+    {{else}}
+    <h1>你还没成年</h1>
+    {{end}}
+
+    {{$sl:=5}}
+    {{range $x:=$sl -}}
+    {{printf "%v" $dog}}
+    {{else}}
+    end
+    {{- end}}
+
+    {{define "footer"}}
+    <p>这是footer部分</p>
+    {{end}}
+</body>
+</html>
